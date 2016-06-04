@@ -5,19 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title></title>
-    <script type="text/javascript" src="node_modules/aframe/dist/aframe.js" charset="utf-8"></script>
+    <script type="text/javascript" src="aframe.js" charset="utf-8"></script>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </head>
 
 <body>
     <a-scene>
-        <a-entity>
-            <a-entity camera look-controls>
-        </a-entity>
+        <a-entity camera look-controls></a-entity>
 
         <a-sky src="https://raw.githubusercontent.com/aframevr/aframe/master/examples/boilerplate/panorama/puydesancy.jpg"></a-sky>
-        <a-box color="tomato" position="-3 0 -5" draggable></a-box>
-        <a-box color="purple" position="3 0 -5"></a-box>
+
+        <a-box color="tomato" position="-3 0 -10" draggable></a-box>
+        <a-box draggable position="3 0 -5"  draggable></a-box>
     </a-scene>
 
 </body>
