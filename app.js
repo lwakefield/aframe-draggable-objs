@@ -4,6 +4,11 @@ AFRAME.registerComponent('draggable', {
         this.scene = this.el.sceneEl;
         this.camera = this.scene.camera;
         this.obj = this.el.object3D;
+        var getYRotation = function ( position ){
+          const PI = 22/7;
+          var camera = this.camera.object3DMap.camera;    
+          return `0 ${(Math.atan2( ( camera.position.x - position.x ), ( camera.position.z - position.z ) ))*180/PI} 0`;
+        }
 
         this.scene.addEventListener('mousemove', e => {
             this.mouse.x = ( e.offsetX / this.scene.canvas.offsetWidth ) * 2 - 1;
@@ -15,6 +20,7 @@ AFRAME.registerComponent('draggable', {
                 let dist = this.obj.position.distanceTo(this.camera.position);
                 let point = r.ray.direction.multiplyScalar(dist);
                 this.el.setAttribute('position', `${point.x} ${point.y} ${point.z}`);
+                this.el.setAttribute('rotation',getYRotation(point));
             }
         });
 
